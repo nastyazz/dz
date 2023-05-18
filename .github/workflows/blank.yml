@@ -22,9 +22,6 @@ jobs:
         run: sudo apt-get install openssl
         continue-on-error: true
 
-      - name: Creating file.txt
-        run: echo "Hello world!" > "file.txt"
-
       - name: Running the script
         run: |
           chmod +x ./dz.sh
