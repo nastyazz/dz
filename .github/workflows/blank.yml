@@ -34,7 +34,7 @@ jobs:
       - name: Checking with uncorrect password
         run: |
           ./dz.sh file.txt 12345
-          continue-on-error: true
+        continue-on-error: true
   
       - name: Checking with correct password
         run: |
