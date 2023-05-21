@@ -14,25 +14,20 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+      
+      - name: dependencies install
+        run: sudo apt-get install openssl expect
 
-      - name: Creating file.txt
-        run: echo "Hello world!" > "file.txt"
-
-      - name: openssl install
-        run: sudo apt-get install openssl
-        continue-on-error: true
-
-      - name: Running the script
+      - name: Наличие README.md
         run: |
-          chmod +x ./dz.sh
-          echo "1234
-          1234" | ./dz.sh file.txt
-
-      - name: Checking with uncorrect password
-        run: |
-          ./dz.sh file.txt 12345
-        continue-on-error: true
+          chmod +x test.sh
+          ./test.sh
   
-      - name: Checking with correct password
+      - name: Проверка шифрования
         run: |
-          ./dz.sh file.txt 1234
+          chmod +x test1.sh
+          ./test1.sh
+      - name: Проверка расшифровки
+        run: |
+          chmod +x test2.sh
+          ./test2.sh
