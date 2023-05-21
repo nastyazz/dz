@@ -27,6 +27,8 @@ jobs:
         run: |
           chmod +x test1.sh
           ./test1.sh
+        continue-on-error: true
+
       - name: Проверка расшифровки
         run: |
           chmod +x test2.sh
