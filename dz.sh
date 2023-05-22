@@ -12,6 +12,7 @@ if [[ $# -eq 1 ]]; then
     openssl enc -aes-256-cbc -salt -in "$input_file" -out "$encrypted_file"
     echo "Файл '$input_file' зашифрован и сохранен в '$encrypted_file'"
     echo "Ключ для расшифровки сохранен в '$key_file'"
+    rm $input_file
     exit 0
 fi
 if [[ $# -eq 2 ]]; then
@@ -24,3 +25,5 @@ if ! openssl enc -d -aes-256-cbc -salt -in "$encrypted_file" -out "$input_file" 
     exit 1
 fi
 echo "Файл '$encrypted_file' расшифрован и сохранен в '$input_file'"
+rm $encrypted_file
+rm $key_file
